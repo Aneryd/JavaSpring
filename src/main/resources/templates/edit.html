@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование</title>
+</head>
+<body>
+<a href="/">Главная</a><br>
+<div th:each="el : ${film}">
+    <form method="post">
+        <input type="text" name="title" placeholder="Название фильмы" th:value="${el.title}"><br>
+        <textarea name="description" placeholder="Описание" th:text="${el.description}" /><br>
+        <input type="text" name="year" placeholder="Год" th:value="${el.year}"><br>
+        <input type="text" name="country" placeholder="Страна" th:value="${el.country}"><br>
+        <input type="text" name="date" placeholder="Дата" th:value="${el.date}"><br>
+        <button type="submit">Обновить</button>
+    </form>
+</div>
+
+</body>
+</html>

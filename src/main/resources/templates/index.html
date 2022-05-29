@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"/>
+</head>
+<body>
+<a href="/">Главная</a><br>
+<a href="/add">Доавить фильм</a><br>
+    <h1>Фильмы</h1>
+    <div th:each="el:${films}">
+        <h3 th:text="${el.title}" />
+        <p th:text="${el.description}" />
+        <a th:href="'/film' + ${el.id}">Смотреть</a>
+        <a th:href="'/film/' + ${el.id} + '/edit'">Редактировать</a>
+        <form th:action="'/delete/' + ${el.id}" method="post">
+            <button th:href="'/delete/' + ${el.id}" type="submit">Удалить</button>
+        </form>
+    </div>
+</body>
+</html>
